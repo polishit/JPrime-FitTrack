@@ -1,0 +1,202 @@
+:root {
+  /* Typography */
+  --font-xs: 0.75rem;   /* 12px */
+  --font-sm: 0.875rem;  /* 14px */
+  --font-md: 1rem;      /* 16px */
+  --font-lg: 1.25rem;   /* 20px */
+  --font-xl: 1.5rem;    /* 24px */
+  --font-2xl: 2rem;     /* 32px */
+  --font-3xl: 2.5rem;   /* 40px */
+
+  /* Spacing (8px system) */
+  --space-1: 0.25rem;  /* 4px */
+  --space-2: 0.5rem;   /* 8px */
+  --space-3: 1rem;     /* 16px */
+  --space-4: 1.5rem;   /* 24px */
+  --space-5: 2rem;     /* 32px */
+  --space-6: 3rem;     /* 48px */
+
+  /* Line height */
+  --line-tight: 1.2;
+  --line-normal: 1.5;
+  --line-relaxed: 1.75;
+
+  /*Coloring */
+  --primary: #ffa500;
+  --secondary: #121212;
+  --third: #278727;
+  --hover: #413f3f;
+  --font-color: #ffffff;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+
+}
+.login-page{
+    height: 100vh;
+    display: flex;
+}
+.right{
+    flex: 1;
+    background-color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    justify-content: center;
+    align-items: center;
+    padding: 0px var(--space-6);
+}
+
+.right i{
+    color: var(--font-color);
+    background-color: var(--primary);
+    font-size: var(--font-2xl);
+    padding: var(--space-4);
+    border-radius: 10px;
+}
+.right h1{
+    font-size: var(--font-3xl);
+    color: var(--font-color);
+}
+.right h1 span{
+    color: var(--primary);
+}
+.right p{
+    font-size: var(--font-md);
+    color: var(--font-color);
+    text-align: center;
+}
+.left{
+    flex: 1;
+    background-color: white;
+    display: flex;
+    gap: var(--space-5);
+    padding: 0px var(--space-6);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.welcome{
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    width: 100%;
+    max-width: 25rem;
+    align-self: center;
+}
+.welcome h3{
+    font-size: var(--font-2xl);
+
+}
+.welcome p{
+     font-size: var(--font-md);
+     color: gray;
+}
+.form-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+
+    width: 100%;
+    max-width: 26rem;
+    align-self: center; /* ← add this to center the block */
+    
+}
+.form-container label{
+    font-size: var(--font-sm);
+    
+}
+.form-container input,
+.form-container button {
+    width: 100%;          /* fill parent width */
+    max-width: 26rem;     /* 400px */
+    min-width: 12.5rem;   /* 200px */
+    
+    padding: 1rem 1rem;
+    border:  1px solid gray;
+    border-radius: 0.4rem;
+}
+.form-container input:focus{
+    border: 3px solid var(--primary);
+    outline: none;
+}
+.form-container input::placeholder{
+    font-family: 'Poppins', 'sans-serif';
+}
+
+.form-container button{
+    background-color: var(--primary);
+    color: white;
+    font-size: var(--font-md);
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+}
+.welcome-footer {
+    width: 100%;
+    max-width: 26rem;
+    min-width: 12.5rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+.demo {
+    font-size: var(--font-xs);
+    color: gray;
+}
+.credentials{
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--font-xs)
+}
+.credentials p{
+    color: gray;
+}
+.credentials p span{
+    color: black;
+}
+
+@media (max-width: 1023px){
+   
+    .login-page{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+   .right{
+    flex-direction: row;
+    background-color: white;
+    flex: unset;
+    width: 100%;
+   }
+   .left{
+    flex: unset;
+    width: 100%;
+   }
+   .right i{
+    font-size: var(--font-md);
+    padding: var(--space-3);
+   }
+   .right h1{
+    font-size: var(--font-md);
+    color: black;
+   }
+   .right h1 span{
+    color: black;
+   }
+   .right p{
+    display: none;
+   }
+}
