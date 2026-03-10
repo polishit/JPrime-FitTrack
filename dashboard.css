@@ -632,5 +632,41 @@ body {
   gap: var(--space-4);
 }
 
+.checkin-table h3{
+   width: 100%;
+   font-size: var(--font-lg);
+}
+.checkin-person{
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+
+  margin-left: var(--space-3);
+}
+
+.person-initial {
+  background-color: var(--primary);
+  font-size: var(--font-md);
+
+   width: var(--font-lg);
+   height: var(--font-lg);
+   padding: var(--space-3);
+  border-radius: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.person-details p:nth-child(1){
+  font-size: var(--font-sm);
+
+}
+.person-details p:nth-child(2){
+  font-size: var(--font-xs);
+  color: gray;
+
+}
+
+
 
 
