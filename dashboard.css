@@ -471,12 +471,58 @@ body {
   font-size: var(--font-sm);
 }
 
+.members-table-container td:nth-child(1) div:nth-child(1){
+    color: black;
+
+}
+.members-table-container td:nth-child(1) div:nth-child(2){
+    font-size: var(--font-xs);
+
+}
+.members-table-container td:nth-child(2) div:nth-child(2){
+    font-size: var(--font-xs);
+
+}
+.members-table-container td:nth-child(2) div:nth-child(1){
+     color: black;
+}
 .members-table-container td:nth-child(7) {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: var(--space-3);
+    text-align: center;        
+    vertical-align: middle;    
 }
 
+.members-table-container td:nth-child(7) .actions-wrapper {
+    display: flex;
+    gap: var(--space-2);     
+    justify-content: center;   
+    align-items: center;      
+}
 
+.members-table-container td:nth-child(7) .actions-wrapper button:nth-child(1) {
+   color: black;
+   font-size: var(--font-sm);
+   padding: var(--space-2);
+   border: none;
+   border-radius: 0.4rem;
+   cursor: pointer;
 
+   transition: 0.5s ease-in-out;
+}
+
+.members-table-container td:nth-child(7) .actions-wrapper button:nth-child(2) {
+   color: red;
+   font-size: var(--font-sm);
+   padding: var(--space-2);
+   border: none;
+   border-radius: 0.4rem;
+   cursor: pointer;
+
+   transition: 0.5s ease-in-out;
+}
+.members-table-container td:nth-child(7) .actions-wrapper button:nth-child(1):hover, 
+.members-table-container td:nth-child(7) .actions-wrapper button:nth-child(2):hover{
+  background-color: var(--primary);
+  
+}
+
+/*End of Members Styles*/
