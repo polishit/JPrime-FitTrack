@@ -885,3 +885,47 @@ body {
   color: orange;
   font-weight: 700;
 }
+
+.plans{
+  margin-left: 16.5rem;
+  padding: var(--space-5) var(--space-6);
+
+  display: flex;
+  flex-direction: column;
+  gap : var(--space-4);
+  max-width: 100%;
+
+}
+
+.plans-top{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.plans-left p{
+  color: gray;
+}
+
+.plans-right button{
+  font-size: var(--font-sm);
+  color: white;
+  background-color: var(--primary);
+ 
+  border: none;
+   padding: 0.8rem 1rem;
+   border-radius: 0.4rem; 
+   cursor: pointer;
+   transition: 0.3s ease-in-out;
+}
+.plans-right button span{
+  padding-right: var(--space-2);
+}
+.plans-right button:hover{
+  opacity: 0.7;
+}
+
+
+
+
