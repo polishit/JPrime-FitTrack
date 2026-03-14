@@ -9,8 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-         <nav class="side-bar">
-        <div class="upper"> 
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="sidebar-overlay" id="overlay"></div>
+    <nav class="side-bar" id="sidebar">
+        <div class="upper">
             <div class="upper-left">
                 <i class="fa-solid fa-dumbbell"></i>
             </div>
@@ -19,20 +21,18 @@
                 <p>FitTrack</p>
             </div>
         </div>
-
             <hr>
         <div class="middle">
             <ul class="middle-list">
                 <li><a href="dashboard.html"> <span><i class="fa-solid fa-gauge"></i></span>Dashboard</a></li>
-                <li><a  href="members.html"><span><i class="fa-solid fa-user-group"></i></span>Members</a></li>
+                <li><a href="members.html"><span><i class="fa-solid fa-user-group"></i></span>Members</a></li>
                 <li><a href="attendance.html"><span><i class="fa-solid fa-table"></i></span>Attendance</a></li>
-                <li><a href="payments.html" ><span><i class="fa-brands fa-paypal"></i></span>Payments</a></li>
+                <li><a href="payments.html"><span><i class="fa-brands fa-paypal"></i></span>Payments</a></li>
                 <li><a href="expenses.html"><span><i class="fa-solid fa-dollar-sign"></i></span>Expenses</a></li>
                 <li><a href="plans.html" class="active"><span><i class="fa-solid fa-clipboard-user"></i></span>Plans</a></li>
                 <li><a href="trainers.html"><span><i class="fa-solid fa-dumbbell"></i></span>Trainers</a></li>
             </ul>
         </div>
-
         <div class="bottom">
             <div class="bottom-left">
                 <div class="bottom-icon">
@@ -42,7 +42,6 @@
                     <p>admin</p>
                     <p>Admin</p>
                 </div>
-                
             </div>
             <a class="bottom-right" href="login.html">
              <i class="fa-solid fa-arrow-right"></i>
@@ -52,14 +51,13 @@
 
     <main class="plans">
         <div class="plans-top">
-        <div class="plans-left">
-            <h1>Membership Plans</h1>
-            <p>Manage pricing and plan options</p>
-        </div>
-
-        <div class="plans-right">
-            <button><span><i class="fa-solid fa-plus"></i></span>Add Plan</button>
-        </div>
+            <div class="plans-left">
+                <h1>Membership Plans</h1>
+                <p>Manage pricing and plan options</p>
+            </div>
+            <div class="plans-right">
+                <button><span><i class="fa-solid fa-plus"></i></span>Add Plan</button>
+            </div>
         </div>
 
         <div class="plans-bottom">
@@ -70,46 +68,48 @@
                     <h1>₱1,500</h1>
                     <p>1 month</p>
                     <p>Basic gym access for 1 month</p>
-
-                    <div class="member-count"><span><i class="fa-solid fa-user-group"></i></span>
-                    1 member</div>
+                    <div class="member-count"><span><i class="fa-solid fa-user-group"></i></span>1 member</div>
                 </div>
-                 
-                   <div class="plans-cards">
+                <div class="plans-cards">
                     <div><i class="fa-solid fa-clock"></i></div>
                     <h3>Quarterly Standard</h3>
                     <h1>₱4,500</h1>
-                    <p>3 month</p>
+                    <p>3 months</p>
                     <p>3-month access with trainer</p>
-
-                    <div class="member-count"><span><i class="fa-solid fa-user-group"></i></span>
-                    1 member</div>
+                    <div class="member-count"><span><i class="fa-solid fa-user-group"></i></span>1 member</div>
                 </div>
-                   <div class="plans-cards">
+                <div class="plans-cards">
                     <div><i class="fa-solid fa-clock"></i></div>
                     <h3>Half-Year Premium</h3>
                     <h1>₱7,000</h1>
                     <p>6 months</p>
                     <p>6-month full access</p>
-
-                    <div class="member-count"><span><i class="fa-solid fa-user-group"></i></span>
-                    1 member</div>
+                    <div class="member-count"><span><i class="fa-solid fa-user-group"></i></span>1 member</div>
                 </div>
-                   <div class="plans-cards">
+                <div class="plans-cards">
                     <div><i class="fa-solid fa-clock"></i></div>
                     <h3>Annual VIP</h3>
                     <h1>₱12,000</h1>
                     <p>12 months</p>
                     <p>Full year VIP membership</p>
-
-                    <div class="member-count"><span><i class="fa-solid fa-user-group"></i></span>
-                    1 member</div>
+                    <div class="member-count"><span><i class="fa-solid fa-user-group"></i></span>1 member</div>
                 </div>
             </div>
-
         </div>
-       
-
     </main>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const sidebar   = document.getElementById("sidebar");
+      const overlay   = document.getElementById("overlay");
+      function toggleSidebar() {
+        hamburger.classList.toggle("open");
+        sidebar.classList.toggle("open");
+        overlay.classList.toggle("active");
+        document.body.style.overflow = sidebar.classList.contains("open") ? "hidden" : "";
+      }
+      hamburger.addEventListener("click", toggleSidebar);
+      overlay.addEventListener("click", toggleSidebar);
+    </script>
 </body>
 </html>

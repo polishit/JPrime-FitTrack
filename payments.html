@@ -3,13 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>JPrime FitTrack</title>
+    <title>JPrime FitTrack</title>
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="side-bar">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="sidebar-overlay" id="overlay"></div>
+    <nav class="side-bar" id="sidebar">
         <div class="upper">
             <div class="upper-left">
                 <i class="fa-solid fa-dumbbell"></i>
@@ -19,12 +21,11 @@
                 <p>FitTrack</p>
             </div>
         </div>
-
             <hr>
         <div class="middle">
             <ul class="middle-list">
                 <li><a href="dashboard.html"> <span><i class="fa-solid fa-gauge"></i></span>Dashboard</a></li>
-                <li><a  href="members.html"><span><i class="fa-solid fa-user-group"></i></span>Members</a></li>
+                <li><a href="members.html"><span><i class="fa-solid fa-user-group"></i></span>Members</a></li>
                 <li><a href="attendance.html"><span><i class="fa-solid fa-table"></i></span>Attendance</a></li>
                 <li><a href="payments.html" class="active"><span><i class="fa-brands fa-paypal"></i></span>Payments</a></li>
                 <li><a href="expenses.html"><span><i class="fa-solid fa-dollar-sign"></i></span>Expenses</a></li>
@@ -32,7 +33,6 @@
                 <li><a href="trainers.html"><span><i class="fa-solid fa-dumbbell"></i></span>Trainers</a></li>
             </ul>
         </div>
-
         <div class="bottom">
             <div class="bottom-left">
                 <div class="bottom-icon">
@@ -42,7 +42,6 @@
                     <p>admin</p>
                     <p>Admin</p>
                 </div>
-                
             </div>
             <a class="bottom-right" href="login.html">
              <i class="fa-solid fa-arrow-right"></i>
@@ -50,21 +49,21 @@
         </div>
     </nav>
 
-    <main class="payments"> 
+    <main class="payments">
        <div class="payments-wrapper">
         <div class="payments-left">
             <h1>Payments</h1>
             <p>Track membership payments</p>
         </div>
-            <div class="payments-right">
-                <div class="income">
-                    <p>Total Income</p>
-                    <h3>₱28,500</h3>
-                </div>
-                <div class="record">
-                    <button><span><i class="fa-solid fa-plus"></i></span>Record Payment</button>
-                </div>
+        <div class="payments-right">
+            <div class="income">
+                <p>Total Income</p>
+                <h3>₱28,500</h3>
             </div>
+            <div class="record">
+                <button><span><i class="fa-solid fa-plus"></i></span>Record Payment</button>
+            </div>
+        </div>
        </div>
 
        <div class="pay-table">
@@ -77,13 +76,7 @@
                 <th>Date</th>
                 <th>Remarks</th>
             </tr>
-            
-            <tr>
-                <td colspan="7">
-                    <hr>
-                </td>
-            </tr>
-
+            <tr><td colspan="7"><hr></td></tr>
             <tr>
                 <td>Carlos Mendoza</td>
                 <td>Quarterly Started</td>
@@ -100,9 +93,22 @@
                 <td>2026-02-10</td>
                 <td>Initial payment</td>
             </tr>
-
-        </table> 
+        </table>
        </div>
     </main>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const sidebar   = document.getElementById("sidebar");
+      const overlay   = document.getElementById("overlay");
+      function toggleSidebar() {
+        hamburger.classList.toggle("open");
+        sidebar.classList.toggle("open");
+        overlay.classList.toggle("active");
+        document.body.style.overflow = sidebar.classList.contains("open") ? "hidden" : "";
+      }
+      hamburger.addEventListener("click", toggleSidebar);
+      overlay.addEventListener("click", toggleSidebar);
+    </script>
 </body>
 </html>

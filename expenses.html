@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="side-bar">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="sidebar-overlay" id="overlay"></div>
+    <nav class="side-bar" id="sidebar">
         <div class="upper">
             <div class="upper-left">
                 <i class="fa-solid fa-dumbbell"></i>
@@ -19,7 +21,6 @@
                 <p>FitTrack</p>
             </div>
         </div>
-
             <hr>
         <div class="middle">
             <ul class="middle-list">
@@ -32,7 +33,6 @@
                 <li><a href="trainers.html"><span><i class="fa-solid fa-dumbbell"></i></span>Trainers</a></li>
             </ul>
         </div>
-
         <div class="bottom">
             <div class="bottom-left">
                 <div class="bottom-icon">
@@ -42,7 +42,6 @@
                     <p>admin</p>
                     <p>Admin</p>
                 </div>
-                
             </div>
             <a class="bottom-right" href="login.html">
              <i class="fa-solid fa-arrow-right"></i>
@@ -52,7 +51,6 @@
 
     <main class="expenses">
         <div class="expense-wrapper">
-
             <div class="expense-left">
                 <h1>Expenses</h1>
                 <p>Track gym expenses and spending</p>
@@ -66,7 +64,6 @@
                     <button><span><i class="fa-solid fa-plus"></i></span>Add Expense</button>
                 </div>
             </div>
-
         </div>
 
         <div class="expense-table">
@@ -78,11 +75,7 @@
                     <th>Notes</th>
                     <th>Actions</th>
                 </tr>
-
-                <tr>
-                    <td colspan="5"><hr></td>
-                </tr>
-
+                <tr><td colspan="5"><hr></td></tr>
                 <tr>
                     <td>Utilities</td>
                     <td>₱5,000</td>
@@ -90,7 +83,6 @@
                     <td>Electric bill</td>
                     <td><button><i class="fa-solid fa-delete-left"></i></button></td>
                 </tr>
-
                 <tr>
                     <td>Utilities</td>
                     <td>₱7,000</td>
@@ -98,16 +90,22 @@
                     <td>Employee Salary</td>
                     <td><button><i class="fa-solid fa-delete-left"></i></button></td>
                 </tr>
-
-
-
-
             </table>
-             
-
-
         </div>
-        
     </main>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const sidebar   = document.getElementById("sidebar");
+      const overlay   = document.getElementById("overlay");
+      function toggleSidebar() {
+        hamburger.classList.toggle("open");
+        sidebar.classList.toggle("open");
+        overlay.classList.toggle("active");
+        document.body.style.overflow = sidebar.classList.contains("open") ? "hidden" : "";
+      }
+      hamburger.addEventListener("click", toggleSidebar);
+      overlay.addEventListener("click", toggleSidebar);
+    </script>
 </body>
 </html>

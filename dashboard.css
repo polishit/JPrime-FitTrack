@@ -43,16 +43,19 @@ body {
 }
 .side-bar{
   background-color: var(--secondary);
-  
   width: 100%;
   height: 100vh;
+  min-height: 100%;
   max-width: 16.5rem;
   padding: var(--space-5);  
   position: fixed;
   top: 0;
+  bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
+  overflow-y: auto;
 }
 .upper{
   display: flex;
@@ -1061,4 +1064,285 @@ body {
 .member span{
    padding-right: var(--space-1);
 }
+
+
+/* ============================================================
+   HAMBURGER / OVERLAY (hidden on desktop)
+   ============================================================ */
+.hamburger {
+  display: none;
+  position: fixed;
+  top: var(--space-3);
+  left: var(--space-3);
+  z-index: 200;
+  background: var(--primary);
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.65rem;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 5px;
+}
+.hamburger span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+/* X animation when open */
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.open span:nth-child(2) { opacity: 0; }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+ 
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  z-index: 100;
+}
+.sidebar-overlay.active { display: block; }
+ 
+/* ============================================================
+   BREAKPOINT: TABLET  768px – 1023px
+   ============================================================ */
+@media (max-width: 1023px) {
+ 
+  /* --- Sidebar --- */
+ .side-bar {
+    max-width: 14rem;
+    height: 100vh;
+    overflow-y: auto;
+    padding: var(--space-4) var(--space-3);
+  }
+ 
+  /* --- All page content areas --- */
+  .dashboard-content,
+  .members-dashboard,
+  .attendance,
+  .payments,
+  .expenses,
+  .plans,
+  .trainers {
+    margin-left: 14rem;
+    padding: var(--space-4);
+  }
+ 
+  /* --- Charts: stack below each other --- */
+  .charts-container {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* --- Members intro: stack button below title --- */
+  .members-intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+ 
+  /* --- Payments / Expenses header row --- */
+  .payments-wrapper,
+  .expense-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  .payments-right,
+  .expense-right {
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+ 
+  /* --- Plans / Trainers top row --- */
+  .plans-top,
+  .trainers-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+ 
+  /* --- Tables: horizontal scroll --- */
+  .payments-container,
+  .members-table,
+  .checkin-table,
+  .pay-table,
+  .expense-table {
+    overflow-x: auto;
+  }
+ 
+  /* --- Check-in row: wrap --- */
+  .checkin-select {
+    flex-wrap: wrap;
+  }
+}
+ 
+/* ============================================================
+   BREAKPOINT: MOBILE  < 768px
+   ============================================================ */
+@media (max-width: 767px) {
+ 
+  /* --- Show hamburger --- */
+  .hamburger { display: flex; }
+ 
+  /* --- Sidebar: slide-in drawer --- */
+  .side-bar {
+    max-width: 16.5rem;
+    height: 100vh;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    z-index: 150;
+    transition: transform 0.3s ease;
+  }
+  .side-bar.open {
+    transform: translateX(0);
+  }
+ 
+  /* --- All page content: full width, top padding for hamburger --- */
+  .dashboard-content,
+  .members-dashboard,
+  .attendance,
+  .payments,
+  .expenses,
+  .plans,
+  .trainers {
+    margin-left: 0;
+    padding: 4rem var(--space-3) var(--space-3);
+  }
+ 
+  /* --- Welcome headings --- */
+  .dashboard-welcome h1,
+  .attendance-welcome h1,
+  .members-left h1,
+  .payments-left h1,
+  .expense-left h1,
+  .plans-left h1 {
+    font-size: var(--font-xl);
+  }
+ 
+  /* --- Summary cards: 2-up grid --- */
+  .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+  .cards {
+    padding: var(--space-3);
+    gap: var(--space-2);
+  }
+  .cards h1 { font-size: var(--font-lg); }
+ 
+  /* --- Charts: stack, constrain canvas height --- */
+  .charts-container {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  .chart-card canvas { height: 220px; }
+ 
+  /* --- Plans / Trainers grids: 2-up --- */
+  .grid-wrapper,
+  .trainers-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+ 
+  /* --- Members search: stack inputs --- */
+  .members-search {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .search-members,
+  .members-search button {
+    max-width: 100%;
+  }
+ 
+  /* --- Members intro --- */
+  .members-intro {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .members-right button { width: 100%; justify-content: center; }
+ 
+  /* --- Payments / Expenses wrappers --- */
+  .payments-wrapper,
+  .expense-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+  }
+  .payments-right,
+  .expense-right {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .income, .expense {
+    flex: 1;
+    min-width: 8rem;
+  }
+  .record button,
+  .add-expense button {
+    width: 100%;
+    justify-content: center;
+  }
+ 
+  /* --- Plans / Trainers top row --- */
+  .plans-top,
+  .trainers-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+  }
+  .plans-right button,
+  .trainers-right button {
+    width: 100%;
+    justify-content: center;
+  }
+ 
+  /* --- Check-in select: stack --- */
+  .checkin-select {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .checkin-left { max-width: 100%; }
+  .checkin-right { width: 100%; text-align: center; }
+ 
+  /* --- Tables: horizontal scroll with sticky first col --- */
+  .payments-container,
+  .members-table,
+  .checkin-table,
+  .pay-table,
+  .expense-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .table-container,
+  .members-table-container,
+  .paytable-container,
+  .expense-container {
+    min-width: 600px;
+  }
+}
+ 
+/* ============================================================
+   BREAKPOINT: SMALL MOBILE  < 480px
+   ============================================================ */
+@media (max-width: 479px) {
+ 
+  /* --- Cards: single column for very small screens --- */
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* --- Plans / Trainers: single column --- */
+  .grid-wrapper,
+  .trainers-grid {
+    grid-template-columns: 1fr;
+  }
+ 
+  /* --- Sidebar nav text hide to icon-only not needed since it slides over --- */
+  .chart-card canvas { height: 180px; }
+}
+
 

@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <nav class="side-bar">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="sidebar-overlay" id="overlay"></div>
+    <nav class="side-bar" id="sidebar">
         <div class="upper">
             <div class="upper-left">
                 <i class="fa-solid fa-dumbbell"></i>
@@ -19,7 +21,6 @@
                 <p>FitTrack</p>
             </div>
         </div>
-
             <hr>
         <div class="middle">
             <ul class="middle-list">
@@ -32,7 +33,6 @@
                 <li><a href="trainers.html"><span><i class="fa-solid fa-dumbbell"></i></span>Trainers</a></li>
             </ul>
         </div>
-
         <div class="bottom">
             <div class="bottom-left">
                 <div class="bottom-icon">
@@ -42,7 +42,6 @@
                     <p>admin</p>
                     <p>Admin</p>
                 </div>
-                
             </div>
             <a class="bottom-right" href="login.html">
              <i class="fa-solid fa-arrow-right"></i>
@@ -65,12 +64,10 @@
         </div>
 
         <div class="members-search">
-
             <form action="" class="search-members">
                 <span><i class="fa-solid fa-magnifying-glass"></i></span>
                 <input type="search" placeholder="Search Members...">
             </form>
-
             <button>
                 All Status <span>
                     <i class="fa-solid fa-angle-down"></i>
@@ -90,122 +87,80 @@
                     <th>Actions</th>
                 </tr>
                 <tr>
-                    <td colspan ="7">
-                        <hr>
+                    <td colspan="7"><hr></td>
+                </tr>
+                <tr>
+                    <td><div>Juan Dela Cruz</div><div>Male</div></td>
+                    <td><div>juan@email.com</div><div>09353313599</div></td>
+                    <td>Quarterly Standard</td>
+                    <td>Marcus Rivera</td>
+                    <td>2026-04-01</td>
+                    <td>active</td>
+                    <td>
+                        <div class="actions-wrapper">
+                            <button><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button><i class="fa-solid fa-delete-left"></i></button>
+                        </div>
                     </td>
                 </tr>
                 <tr>
-                    <td>
-                        <div>Juan Dela Cruz</div>
-                        <div>Male</div>
-                    </td>
-                    <td>
-                        <div>juan@email.com</div>
-                        <div>09353313599</div>
-                    </td>
-                    <td>
-                        Quarterly Standard
-                    </td>
-                    <td>
-                        Marcus Rivera
-                    </td>
-                    <td>
-                        2026-04-01
-                    </td>
-                    <td>active</td>
-                   <td>
-                     <div class="actions-wrapper">
-                        <button><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button><i class="fa-solid fa-delete-left"></i></button>
-                     </div>
-                    </td>
-                </tr>
-                 <tr>
-                    <td>
-                        <div>Juan Dela Cruz</div>
-                        <div>Male</div>
-                    </td>
-                    <td>
-                        <div>juan@email.com</div>
-                        <div>09353313599</div>
-                    </td>
-                    <td>
-                        Quarterly Standard
-                    </td>
-                    <td>
-                        Marcus Rivera
-                    </td>
-                    <td>
-                        2026-04-01
-                    </td>
+                    <td><div>Juan Dela Cruz</div><div>Male</div></td>
+                    <td><div>juan@email.com</div><div>09353313599</div></td>
+                    <td>Quarterly Standard</td>
+                    <td>Marcus Rivera</td>
+                    <td>2026-04-01</td>
                     <td>expired</td>
                     <td>
                         <div class="actions-wrapper">
-                        <button><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button><i class="fa-solid fa-delete-left"></i></button>
+                            <button><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button><i class="fa-solid fa-delete-left"></i></button>
                         </div>
                     </td>
-                   
                 </tr>
-
-                  <tr>
-                    <td>
-                        <div>Juan Dela Cruz</div>
-                        <div>Male</div>
-                    </td>
-                    <td>
-                        <div>juan@email.com</div>
-                        <div>09353313599</div>
-                    </td>
-                    <td>
-                        Quarterly Standard
-                    </td>
-                    <td>
-                        Marcus Rivera
-                    </td>
-                    <td>
-                        2026-04-01
-                    </td>
+                <tr>
+                    <td><div>Juan Dela Cruz</div><div>Male</div></td>
+                    <td><div>juan@email.com</div><div>09353313599</div></td>
+                    <td>Quarterly Standard</td>
+                    <td>Marcus Rivera</td>
+                    <td>2026-04-01</td>
                     <td>expired</td>
                     <td>
                         <div class="actions-wrapper">
-                        <button><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button><i class="fa-solid fa-delete-left"></i></button>
+                            <button><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button><i class="fa-solid fa-delete-left"></i></button>
                         </div>
                     </td>
-                   
                 </tr>
-                  <tr>
-                    <td>
-                        <div>Juan Dela Cruz</div>
-                        <div>Male</div>
-                    </td>
-                    <td>
-                        <div>juan@email.com</div>
-                        <div>09353313599</div>
-                    </td>
-                    <td>
-                        Quarterly Standard
-                    </td>
-                    <td>
-                        Marcus Rivera
-                    </td>
-                    <td>
-                        2026-04-01
-                    </td>
+                <tr>
+                    <td><div>Juan Dela Cruz</div><div>Male</div></td>
+                    <td><div>juan@email.com</div><div>09353313599</div></td>
+                    <td>Quarterly Standard</td>
+                    <td>Marcus Rivera</td>
+                    <td>2026-04-01</td>
                     <td>expired</td>
                     <td>
                         <div class="actions-wrapper">
-                        <button><i class="fa-solid fa-pen-to-square"></i></button>
-                        <button><i class="fa-solid fa-delete-left"></i></button>
+                            <button><i class="fa-solid fa-pen-to-square"></i></button>
+                            <button><i class="fa-solid fa-delete-left"></i></button>
                         </div>
                     </td>
-                   
                 </tr>
-
             </table>
         </div>
-
     </main>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const sidebar   = document.getElementById("sidebar");
+      const overlay   = document.getElementById("overlay");
+      function toggleSidebar() {
+        hamburger.classList.toggle("open");
+        sidebar.classList.toggle("open");
+        overlay.classList.toggle("active");
+        document.body.style.overflow = sidebar.classList.contains("open") ? "hidden" : "";
+      }
+      hamburger.addEventListener("click", toggleSidebar);
+      overlay.addEventListener("click", toggleSidebar);
+    </script>
 </body>
 </html>

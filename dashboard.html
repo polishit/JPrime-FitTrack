@@ -7,11 +7,12 @@
     <link rel="stylesheet" href="dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <nav class="side-bar">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="sidebar-overlay" id="overlay"></div>
+    <nav class="side-bar" id="sidebar">
         <div class="upper">
             <div class="upper-left">
                 <i class="fa-solid fa-dumbbell"></i>
@@ -22,7 +23,7 @@
             </div>
         </div>
 
-            <hr>
+        <hr>
         <div class="middle">
             <ul class="middle-list">
                 <li><a class="active" href="dashboard.html"> <span><i class="fa-solid fa-gauge"></i></span>Dashboard</a></li>
@@ -44,12 +45,10 @@
                     <p>admin</p>
                     <p>Admin</p>
                 </div>
-                
             </div>
             <a class="bottom-right" href="login.html">
-             <i class="fa-solid fa-arrow-right"></i>
-             </a>
-
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
         </div>
     </nav>
 
@@ -57,10 +56,10 @@
 
     <main class="dashboard-content">
         <div class="dashboard-upper">
-             <div class="dashboard-welcome">
-             <h1>Welcome back,<span> admin</span></h1>
-             <p>Here's what's happening at JPrime Fitness Gym today.</p>
-          </div>
+            <div class="dashboard-welcome">
+                <h1>Welcome back,<span> admin</span></h1>
+                <p>Here's what's happening at JPrime Fitness Gym today.</p>
+            </div>
 
             <div class="dashboard-grid">
                 <div class="cards">
@@ -68,68 +67,56 @@
                     <p>Total Members</p>
                     <h1>5</h1>
                 </div>
-
-                 <div class="cards">
+                <div class="cards">
                     <div><i class="fa-solid fa-user-check"></i></div>
                     <p>Active Users</p>
                     <h1>4</h1>
                 </div>
-
                 <div class="cards">
                     <div><i class="fa-solid fa-user-xmark"></i></div>
                     <p>Expired</p>
                     <h1>1</h1>
                 </div>
-
                 <div class="cards">
                     <div><i class="fa-solid fa-calendar-check"></i></div>
                     <p>Today's Check In</p>
                     <h1>0</h1>
                 </div>
-
                 <div class="cards">
                     <div><i class="fa-solid fa-money-bill-trend-up"></i></div>
                     <p>Total Income</p>
                     <h1>₱28,500</h1>
                 </div>
-
                 <div class="cards">
                     <div><i class="fa-solid fa-receipt"></i></div>
                     <p>Total Expenses</p>
                     <h1>₱48,500</h1>
                 </div>
-
                 <div class="cards">
                     <div><i class="fa-solid fa-coins"></i></div>
                     <p>Net Profit</p>
                     <h1>-₱19,500</h1>
                 </div>
-
-                 <div class="cards">
+                <div class="cards">
                     <div><i class="fa-solid fa-dumbbell"></i></div>
                     <p>Active Trainers</p>
                     <h1>3</h1>
                 </div>
-                       
             </div>
 
             <div class="charts-container">
-
-            <div class="chart-card">
-              <h3>Income vs Expenses</h3>
-            <canvas id="incomeChart"></canvas>
-            </div>
-
-            <div class="chart-card">
-                <h3>Plan Distribution</h3>
-                 <canvas id="planChart"></canvas>
-            </div>
-
+                <div class="chart-card">
+                    <h3>Income vs Expenses</h3>
+                    <canvas id="incomeChart"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h3>Plan Distribution</h3>
+                    <canvas id="planChart"></canvas>
+                </div>
             </div>
 
             <div class="payments-container">
                 <h3>Recent Payments</h3>
-                 
                 <table class="table-container">
                     <tr>
                         <th>Member</th>
@@ -139,10 +126,8 @@
                         <th>Date</th>
                     </tr>
                     <tr>
-                        <td colspan="5">
-                             <hr>
-                         </td>
-                     </tr>
+                        <td colspan="5"><hr></td>
+                    </tr>
                     <tr>
                         <td>Carlos Mendoza</td>
                         <td>Quarterly Started</td>
@@ -150,7 +135,7 @@
                         <td>Cash</td>
                         <td>2026-02-01</td>
                     </tr>
-                      <tr>
+                    <tr>
                         <td>Paul Jude Polinag</td>
                         <td>Annual</td>
                         <td>P4,000</td>
@@ -158,72 +143,51 @@
                         <td>2026-03-01</td>
                     </tr>
                 </table>
-
             </div>
         </div>
     </main>
 
+    <script>
+      // BAR CHART
+      const incomeCtx = document.getElementById('incomeChart');
+      new Chart(incomeCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Jan','Feb','Mar','Apr','May','Jun'],
+          datasets: [
+            { label: 'Income', data: [17000,11000,0,0,0,0], backgroundColor: '#ff6b0b' },
+            { label: 'Expenses', data: [40000,8000,0,0,0,0], backgroundColor: '#bfc5cf' }
+          ]
+        },
+        options: { responsive: true, plugins: { legend: { position: 'top' } } }
+      });
 
+      // DONUT CHART
+      const planCtx = document.getElementById('planChart');
+      new Chart(planCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Monthly Basic','Quarterly Standard','Half-Year Premium','Annual VIP'],
+          datasets: [{
+            data: [1,2,1,1],
+            backgroundColor: ['#ff6b0b','#22c55e','#1d7ed6','#a855f7']
+          }]
+        },
+        options: { cutout: '65%' }
+      });
 
-        <script>
-
-// BAR CHART
-const incomeCtx = document.getElementById('incomeChart');
-
-new Chart(incomeCtx, {
-type: 'bar',
-data: {
-labels: ['Jan','Feb','Mar','Apr','May','Jun'],
-datasets: [
-{
-label: 'Income',
-data: [17000,11000,0,0,0,0],
-backgroundColor: '#ff6b0b'
-},
-{
-label: 'Expenses',
-data: [40000,8000,0,0,0,0],
-backgroundColor: '#bfc5cf'
-}
-]
-},
-options: {
-responsive:true,
-plugins:{
-legend:{position:'top'}
-}
-}
-});
-
-
-// DONUT CHART
-const planCtx = document.getElementById('planChart');
-
-new Chart(planCtx,{
-type:'doughnut',
-data:{
-labels:[
-'Monthly Basic',
-'Quarterly Standard',
-'Half-Year Premium',
-'Annual VIP'
-],
-datasets:[{
-data:[1,2,1,1],
-backgroundColor:[
-'#ff6b0b',
-'#22c55e',
-'#1d7ed6',
-'#a855f7'
-]
-}]
-},
-options:{
-cutout:'65%'
-}
-});
-
-</script>
-
+      // HAMBURGER TOGGLE
+      const hamburger = document.getElementById("hamburger");
+      const sidebar   = document.getElementById("sidebar");
+      const overlay   = document.getElementById("overlay");
+      function toggleSidebar() {
+        hamburger.classList.toggle("open");
+        sidebar.classList.toggle("open");
+        overlay.classList.toggle("active");
+        document.body.style.overflow = sidebar.classList.contains("open") ? "hidden" : "";
+      }
+      hamburger.addEventListener("click", toggleSidebar);
+      overlay.addEventListener("click", toggleSidebar);
+    </script>
 </body>
 </html>

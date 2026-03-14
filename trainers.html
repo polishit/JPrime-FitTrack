@@ -9,7 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-        <nav class="side-bar">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
+    <div class="sidebar-overlay" id="overlay"></div>
+    <nav class="side-bar" id="sidebar">
         <div class="upper">
             <div class="upper-left">
                 <i class="fa-solid fa-dumbbell"></i>
@@ -19,7 +21,6 @@
                 <p>FitTrack</p>
             </div>
         </div>
-
             <hr>
         <div class="middle">
             <ul class="middle-list">
@@ -27,12 +28,11 @@
                 <li><a href="members.html"><span><i class="fa-solid fa-user-group"></i></span>Members</a></li>
                 <li><a href="attendance.html"><span><i class="fa-solid fa-table"></i></span>Attendance</a></li>
                 <li><a href="payments.html"><span><i class="fa-brands fa-paypal"></i></span>Payments</a></li>
-                <li><a href="expenses.html" ><span><i class="fa-solid fa-dollar-sign"></i></span>Expenses</a></li>
+                <li><a href="expenses.html"><span><i class="fa-solid fa-dollar-sign"></i></span>Expenses</a></li>
                 <li><a href="plans.html"><span><i class="fa-solid fa-clipboard-user"></i></span>Plans</a></li>
                 <li><a href="trainers.html" class="active"><span><i class="fa-solid fa-dumbbell"></i></span>Trainers</a></li>
             </ul>
         </div>
-
         <div class="bottom">
             <div class="bottom-left">
                 <div class="bottom-icon">
@@ -42,7 +42,6 @@
                     <p>admin</p>
                     <p>Admin</p>
                 </div>
-                
             </div>
             <a class="bottom-right" href="login.html">
              <i class="fa-solid fa-arrow-right"></i>
@@ -51,77 +50,64 @@
     </nav>
 
     <main class="trainers">
-       
-            <div class="trainers-top">
-                <div class="trainers-left">
-                    <h1>Trainers</h1>
-                    <p>Manage fitness trainers and assignments</p>
-                </div>
+        <div class="trainers-top">
+            <div class="trainers-left">
+                <h1>Trainers</h1>
+                <p>Manage fitness trainers and assignments</p>
+            </div>
+            <div class="trainers-right">
+                <button><span><i class="fa-solid fa-plus"></i></span>Add Trainer</button>
+            </div>
+        </div>
 
-                <div class="trainers-right">
-                    <button><span><i class="fa-solid fa-plus"></i></span>Add Trainer</button>
+        <div class="trainers-bottom">
+            <div class="trainers-grid">
+                <div class="trainers-cards">
+                    <div class="trainers-status">
+                        <i class="fa-solid fa-dumbbell"></i>
+                        <p>active</p>
+                    </div>
+                    <h3>Marcus Rivera</h3>
+                    <p class="training">Strength Training</p>
+                    <p class="phone"><span><i class="fa-solid fa-phone"></i></span> 09353313599</p>
+                    <p class="member"><span><i class="fa-solid fa-user-group"></i></span>2 members assigned</p>
+                </div>
+                <div class="trainers-cards">
+                    <div class="trainers-status">
+                        <i class="fa-solid fa-dumbbell"></i>
+                        <p>active</p>
+                    </div>
+                    <h3>Marcus Rivera</h3>
+                    <p class="training">Strength Training</p>
+                    <p class="phone"><span><i class="fa-solid fa-phone"></i></span> 09353313599</p>
+                    <p class="member"><span><i class="fa-solid fa-user-group"></i></span>2 members assigned</p>
+                </div>
+                <div class="trainers-cards">
+                    <div class="trainers-status">
+                        <i class="fa-solid fa-dumbbell"></i>
+                        <p>active</p>
+                    </div>
+                    <h3>Marcus Rivera</h3>
+                    <p class="training">Strength Training</p>
+                    <p class="phone"><span><i class="fa-solid fa-phone"></i></span> 09353313599</p>
+                    <p class="member"><span><i class="fa-solid fa-user-group"></i></span>2 members assigned</p>
                 </div>
             </div>
-
-            <div class="trainers-bottom">
-                <div class="trainers-grid">
-                    <div class="trainers-cards">
-                        <div class="trainers-status">
-                            <i class="fa-solid fa-dumbbell"></i>
-                            <p>active</p>
-                        </div>
-
-                        <h3>Marcus Rivera</h3>
-                        <p class="training">Strength Training</p>
-
-                        <p class="phone"><span><i class="fa-solid fa-phone"></i></span> 09353313599</p>
-
-                        <p class="member"><span><i class="fa-solid fa-user-group"></i></span>2 members assigned</p>
-                    </div> 
-
-                     <div class="trainers-cards">
-                        <div class="trainers-status">
-                            <i class="fa-solid fa-dumbbell"></i>
-                            <p>active</p>
-                        </div>
-
-                        <h3>Marcus Rivera</h3>
-                        <p class="training">Strength Training</p>
-
-                        <p class="phone"><span><i class="fa-solid fa-phone"></i></span> 09353313599</p>
-
-                        <p class="member"><span><i class="fa-solid fa-user-group"></i></span>2 members assigned</p>
-                    </div>
-
-                     <div class="trainers-cards">
-                        <div class="trainers-status">
-                            <i class="fa-solid fa-dumbbell"></i>
-                            <p>active</p>
-                        </div>
-
-                        <h3>Marcus Rivera</h3>
-                        <p class="training">Strength Training</p>
-
-                        <p class="phone"><span><i class="fa-solid fa-phone"></i></span> 09353313599</p>
-
-                        <p class="member"><span><i class="fa-solid fa-user-group"></i></span>2 members assigned</p>
-                    </div>
-
-                     
-
-
-
-                </div>
-
-            </div>
-
-        
-
-
-
-
-
-
+        </div>
     </main>
+
+    <script>
+      const hamburger = document.getElementById("hamburger");
+      const sidebar   = document.getElementById("sidebar");
+      const overlay   = document.getElementById("overlay");
+      function toggleSidebar() {
+        hamburger.classList.toggle("open");
+        sidebar.classList.toggle("open");
+        overlay.classList.toggle("active");
+        document.body.style.overflow = sidebar.classList.contains("open") ? "hidden" : "";
+      }
+      hamburger.addEventListener("click", toggleSidebar);
+      overlay.addEventListener("click", toggleSidebar);
+    </script>
 </body>
 </html>
